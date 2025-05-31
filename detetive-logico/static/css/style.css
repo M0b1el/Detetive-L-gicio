@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('fundo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caixa-mae{
+    width: 100vw;
+}
+
+.criar-sala{
+    text-decoration: none;
+    display: inline-block;
+    background: rgb(185, 0, 0);
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px 8px 8px 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-bottom: 5px;
+    margin-top: 12px;
+    transition: background 0.2s;
+    text-align: center;
+}
+
+.criar-sala:hover {
+    background: red;
+}
