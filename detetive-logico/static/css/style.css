@@ -1,40 +1,110 @@
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    background: url('fundo.jpg') no-repeat center center fixed;
+/* Corpo */
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.background-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/fundo.jpg"); 
     background-size: cover;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height: 100vh;
-    width: 100vw;
+    background-position: center;
+    z-index: -1;
+}
+
+
+/* Caixa principal sobre o fundo */
+.caixa-mae {
     display: flex;
-    align-items: center;
     justify-content: center;
-}
-
-.caixa-mae{
-    width: 100vw;
-}
-
-.criar-sala{
-    text-decoration: none;
-    display: inline-block;
-    background: rgb(185, 0, 0);
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
     color: white;
-    border: none;
-    padding: 12px 32px;
-    border-radius: 8px 8px 8px 8px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin-bottom: 5px;
-    margin-top: 12px;
-    transition: background 0.2s;
-    text-align: center;
+    z-index: 1;
 }
 
-.criar-sala:hover {
-    background: red;
+/* Conteúdo central */
+.container {
+    text-align: center;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Logo */
+.logo {
+    width: 180px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.7));
+}
+
+/* Título */
+h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+/* Loader */
+.loader {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #ffffff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+/* Texto carregando */
+.loading-text {
+    font-size: 18px;
+    margin-top: 10px;
+    animation: blink 1.5s infinite;
+}
+
+/* Animações */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Suaviza entrada de outros elementos */
+.fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 36px;
+    }
+    .logo {
+        width: 140px;
+    }
+    .loader {
+        width: 50px;
+        height: 50px;
+        border-width: 6px;
+    }
 }

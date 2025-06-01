@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detetive Lógico - Carregando</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Imagem de fundo -->
+    <div class="background-img"></div>
+
+    <!-- Conteúdo principal -->
+    <div class="caixa-mae">
+      <div class="container">
+        <img
+          src="{{ url_for('static', filename='img/logo.png') }}"
+          alt="Logo Detetive Lógico"
+          class="logo"
+        />
+        <h1 class="fade-in">Detetive Lógico</h1>
+        <div class="loader"></div>
+        <p class="loading-text fade-in">Reunindo as pistas...</p>
+      </div>
+    </div>
+
+    <script>
+      const urlHome = "{{ url_for('home') }}";
+    </script>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+  </body>
+</html>
