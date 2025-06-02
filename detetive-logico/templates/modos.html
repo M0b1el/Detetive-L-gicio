@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detetive Lógico - Modos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scripts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modos.css') }}">
+</head>
+<body>
+    <!-- Fundo -->
+    <div class="background-img"></div>
+
+    <!-- Container principal -->
+    <div class="modos-container">
+        <h1 class="titulo-modos">Escolha o Modo</h1>
+
+        <div class="cards">
+            <!-- Tutorial -->
+            <a href="{{ url_for('tutorial_caso') }}" class="card">
+                <h2>Tutorial</h2>
+                <p>Aprenda como jogar resolvendo um caso guiado.</p>
+            </a>
+
+            <!-- Solo -->
+            <a href="{{ url_for('solo') }}" class="card">
+                <h2>Modo Solo</h2>
+                <p>Resolva casos sozinho, com tempo e pontuação.</p>
+            </a>
+
+            <!-- Multiplayer (bloqueado) -->
+            <div class="card bloqueado">
+                <h2>Multiplayer</h2>
+                <p>Em breve.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

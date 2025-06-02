@@ -48,13 +48,6 @@ body, html {
     filter: drop-shadow(0 0 8px rgba(0,0,0,0.7));
 }
 
-/* Título */
-h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-}
-
 /* Loader */
 .loader {
     border: 8px solid rgba(255, 255, 255, 0.3);
@@ -107,4 +100,132 @@ h1 {
         height: 50px;
         border-width: 6px;
     }
+}
+
+/* --------- HOME --------- */
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 10;
+}
+
+/* Menu esquerdo */
+.menu-left {
+    position: relative;
+}
+
+.menu-icon {
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+}
+
+.menu-items {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background-color: rgba(20, 20, 20, 0.95);
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 10px;
+    flex-direction: column;
+    min-width: 180px;
+}
+
+.menu-items a {
+    color: white;
+    padding: 8px 10px;
+    text-decoration: none;
+    display: block;
+    border-radius: 4px;
+}
+
+.menu-items a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Botão de amizade (futuro) */
+.menu-right .btn-amizade {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.menu-right .btn-amizade:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Conteúdo central */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Logo */
+.logo-home {
+    width: 220px;
+    margin-bottom: 40px;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
+}
+
+/* Botão iniciar */
+.btn-iniciar {
+    background-color: #e50914;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    transition: 0.3s;
+}
+
+.btn-iniciar:hover {
+    background-color: #b50710;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .logo-home {
+        width: 160px;
+    }
+
+    .btn-iniciar {
+        font-size: 16px;
+        padding: 12px 30px;
+    }
+
+    .menu-items {
+        min-width: 140px;
+    }
+}
+
+.background-img-home{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/fundo-home.png"); 
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
 }

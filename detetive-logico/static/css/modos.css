@@ -1,0 +1,104 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fonte e fundo */
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0d0d0d;
+    color: white;
+}
+
+/* Imagem de fundo */
+.background-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/fundo-modos.png");
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+/* Container central */
+.modos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Título */
+.titulo-modos {
+    font-size: 48px;
+    margin-bottom: 60px;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #1a1a1a;
+    padding: 30px;
+    width: 260px;
+    border-radius: 15px;
+    border: 2px solid #333;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    border-color: #00ffcc;
+    transform: translateY(-5px);
+}
+
+/* Texto dentro dos cards */
+.card h2 {
+    margin-bottom: 15px;
+    font-size: 26px;
+}
+
+.card p {
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* Card bloqueado */
+.bloqueado {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.bloqueado:hover {
+    border-color: #333;
+    transform: none;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .titulo-modos {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .card {
+        width: 90%;
+    }
+}

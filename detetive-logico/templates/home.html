@@ -1,11 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Detetive Lógico - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Leandro</h1>
+
+    <!-- Fundo -->
+    <div class="background-img-home"></div>
+
+    <!-- Top Menu -->
+    <header class="header">
+        <div class="menu-left">
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <div class="menu-items" id="menu">
+                <a href="#">Configurações</a>
+                <a href="#">Perfil</a>
+                <a href="#">Ajuda</a>
+                <a href="#">Créditos</a>
+                <a href="#">Regras</a>
+                <a href="/">Sair</a>
+            </div>
+        </div>
+        <div class="menu-right">
+            <button class="btn-amizade">🤝</button> <!-- (Futuro) -->
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <div class="home-container">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" class="logo-home" alt="Logo Detetive Lógico">
+
+        <a href="{{ url_for('modos') }}" class="btn-iniciar">Iniciar Partida</a>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>
