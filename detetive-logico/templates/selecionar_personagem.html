@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Personagem | {{ caso.titulo }}</title>
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+        select {
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background-color: #00ffd5;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #00c2a9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Selecionar Personagem</h1>
+        <p><strong>{{ caso.titulo }}</strong></p>
+
+        <form action="{{ url_for('jogar', id=caso.id) }}" method="get">
+            <label for="personagem">Escolha seu personagem:</label><br><br>
+            <select name="personagem" id="personagem" required>
+                {% for personagem in personagens %}
+                    <option value="{{ personagem }}">{{ personagem }}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <button type="submit" class="btn">Iniciar Jogo</button>
+        </form>
+    </div>
+</body>
+</html>

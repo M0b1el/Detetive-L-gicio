@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ caso.titulo }} - Detetive Lógico</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tutorial_caso.css') }}">
+</head>
+<body>
+
+    <div class="background"></div>
+
+    <div class="container-caso">
+        <h1 class="titulo">{{ caso.titulo }}</h1>
+
+        <div class="descricao">
+            <p>{{ caso.descricao }}</p>
+        </div>
+
+        <div class="info-caso">
+            <p><strong>Local do Crime:</strong> {{ caso.local }}</p>
+            <p><strong>Suspeitos:</strong> 
+                {% for suspeito in caso.suspeitos %}
+                    {{ suspeito }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+        </div>
+
+        <div class="alerta">
+            <p><strong>⚠️ Atenção:</strong> O culpado está entre os suspeitos... você consegue descobrir quem é?</p>
+        </div>
+
+        <div class="botoes">
+            <a href="{{ url_for('tutorial') }}" class="botao voltar">⬅️ Voltar</a>
+            <a href="{{ url_for('home') }}" class="botao sair">🏠 Sair</a>
+        </div>
+    </div>
+
+</body>
+</html>

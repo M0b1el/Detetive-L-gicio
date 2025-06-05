@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Escolha um mistério do tutorial para aprender a jogar Detetive Lógico.">
+    <meta name="author" content="Detetive Lógico">
+    <meta name="keywords" content="Detetive, Lógica, Jogo, Tutorial, Mistérios">
+
+    <title>Detetive Lógico - Tutorial</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tutorial.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='imagens/favicon.png') }}">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background"></div>
+
+    <!-- Container principal -->
+    <div class="container-tutorial">
+
+        <h1 class="titulo">Mistérios do Tutorial</h1>
+
+        <div class="cards">
+
+            <!-- Mistério 1 -->
+            <a href="{{ url_for('tutorial_caso', id=1) }}" class="card" aria-label="Abrir o Enigma da Biblioteca">
+                <h2>📜 O SUMIÇO DO GATO DO JARDIM</h2>
+                <p>O gato da mansão, Sir Whiskers, desapareceu! Matheus, o jardineiro, jurou que o viu pela última vez na estufa... 
+                    mas algo não bate em sua história. Descubra a verdade!</p>
+            </a>
+
+            <!-- Mistério 2 -->
+            <a href="{{ url_for('tutorial_caso', id=2) }}" class="card" aria-label="Abrir o Segredo da Cozinha">
+                <h2>📜 O BOLO ENVENENADO</h2>
+                <p>O Chef Daniel preparou um bolo para os hóspedes, mas alguém o envenenou! 
+                    A vítima (um rato de laboratório) morreu perto da cozinha. Suspeite com lógica!.</p>
+            </a>
+
+            <!-- Mistério 3 -->
+            <a href="{{ url_for('tutorial_caso', id=3) }}" class="card" aria-label="Abrir o Mistério do Laboratório">
+                <h2>📜 O LIVRO ROUBADO</h2>
+                <p>Um livro raro sumiu da biblioteca! Bruno acusa João, que acusa Matheus... 
+                    mas apenas um está mentindo. Use a tabela para descobrir!</p>
+            </a>
+
+        </div>
+
+        <div class="botoes">
+            <a href="{{ url_for('modos') }}" class="botao-voltar" aria-label="Voltar para seleção de modos">⏪ Voltar</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

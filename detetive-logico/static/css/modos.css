@@ -1,104 +1,93 @@
-/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Fonte e fundo */
-body, html {
-    height: 100%;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #0d0d0d;
-    color: white;
+body {
+    background-color: #f2f2f2;
+    overflow-x: hidden;
 }
 
-/* Imagem de fundo */
-.background-img {
+.background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../img/fundo-modos.png");
-    background-size: cover;
-    background-position: center;
+    background: url("../img/fundo-escolhas.jpg") no-repeat center center/cover;
     z-index: -1;
 }
 
-/* Container central */
-.modos-container {
+.container-modos {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    padding: 40px 20px;
     text-align: center;
-    min-height: 100vh;
-    padding: 20px;
 }
 
-/* Título */
-.titulo-modos {
-    font-size: 48px;
-    margin-bottom: 60px;
-    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+.titulo {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 40px;
 }
 
-/* Cards */
 .cards {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1000px;
 }
 
 .card {
-    background-color: #1a1a1a;
+    background-color: white;
+    border-radius: 20px;
     padding: 30px;
-    width: 260px;
-    border-radius: 15px;
-    border: 2px solid #333;
     text-decoration: none;
-    color: white;
-    transition: 0.3s;
-    cursor: pointer;
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card:hover {
-    border-color: #00ffcc;
-    transform: translateY(-5px);
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* Texto dentro dos cards */
-.card h2 {
+.card .icone {
+    font-size: 3rem;
     margin-bottom: 15px;
-    font-size: 26px;
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
 }
 
 .card p {
-    font-size: 16px;
-    color: #ccc;
+    font-size: 1rem;
+    color: #555;
 }
 
-/* Card bloqueado */
-.bloqueado {
-    opacity: 0.4;
-    cursor: not-allowed;
+.botoes {
+    margin-top: 40px;
 }
 
-.bloqueado:hover {
-    border-color: #333;
-    transform: none;
+.botao-voltar {
+    background-color: #333;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s;
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
-    .titulo-modos {
-        font-size: 32px;
-        margin-bottom: 40px;
-    }
-
-    .card {
-        width: 90%;
-    }
+.botao-voltar:hover {
+    background-color: #555;
 }

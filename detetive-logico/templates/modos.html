@@ -4,38 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detetive Lógico - Modos</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/scripts.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/modos.css') }}">
 </head>
 <body>
-    <!-- Fundo -->
-    <div class="background-img"></div>
 
-    <!-- Container principal -->
-    <div class="modos-container">
-        <h1 class="titulo-modos">Escolha o Modo</h1>
+    <div class="background"></div>
+
+    <div class="container-modos">
+        <h1 class="titulo">Escolha o Modo de Jogo</h1>
 
         <div class="cards">
             <!-- Tutorial -->
-            <a href="{{ url_for('tutorial_caso') }}" class="card">
+            <a href="{{ url_for('tutorial') }}" class="card">
+                <div class="icone">🎓</div>
                 <h2>Tutorial</h2>
-                <p>Aprenda como jogar resolvendo um caso guiado.</p>
+                <p>Aprenda as regras e resolva mistérios rápidos!</p>
             </a>
 
-            <!-- Solo -->
+            <!-- Modo Solo -->
             <a href="{{ url_for('solo') }}" class="card">
+                <div class="icone">🧠</div>
                 <h2>Modo Solo</h2>
-                <p>Resolva casos sozinho, com tempo e pontuação.</p>
+                <p>Jogue sozinho, resolva casos lógicos e desafie seu raciocínio.</p>
             </a>
 
-            <!-- Multiplayer (bloqueado) -->
-            <div class="card bloqueado">
+            <!-- Multiplayer -->
+            <a href="{{ url_for('multiplayer') }}" class="card">
+                <div class="icone">🌐</div>
                 <h2>Multiplayer</h2>
-                <p>Em breve.</p>
-            </div>
+                <p>Monte uma sala, jogue com amigos e descubram juntos o culpado!</p>
+            </a>
+        </div>
+
+        <div class="botoes">
+            <a href="{{ url_for('home') }}" class="botao-voltar">Voltar</a>
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>

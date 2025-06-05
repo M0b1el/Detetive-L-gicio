@@ -1,0 +1,47 @@
+{
+  "personagens": [
+    "João, o Cientista",
+    "Bruno, o Bibliotecário",
+    "Matheus, o Jardineiro",
+    "Daniel, o Chef"
+  ],
+  "locais": [
+    "Biblioteca",
+    "Cozinha",
+    "Laboratório",
+    "Jardim"
+  ],
+  "armas": [
+    "Faca",
+    "Veneno",
+    "Tesoura de poda",
+    "Seringa",
+    "Livros pesados"
+  ],
+  "tutoriais": [
+    {
+      "id": 1,
+      "titulo": "⚡ O SUMIÇO DO GATO DO JARDIM",
+      "descricao": "O gato da mansão, Sir Whiskers, desapareceu! Matheus, o jardineiro, jurou que o viu pela última vez na estufa mas algo não bate em sua história. Descubra a verdade!",
+      "local": "Estufa",
+      "suspeitos": ["João", "Bruno", "Daniel", "Matheus"],
+      "culpado": "João"
+    },
+    {
+      "id": 2,
+      "titulo": "O BOLO ENVENENADO",
+      "descricao": "O bolo de aniversário do Chef Daniel foi contaminado! Quem quis arruinar a festa?",
+      "local": "Cozinha",
+      "suspeitos": ["Matheus", "Daniel", "João", "Bruno"],
+      "culpado": "Bruno"
+    },
+    {
+      "id": 3,
+      "titulo": "O LIVRO ROUBADO",
+      "descricao": "Um livro raro sumiu da biblioteca! Quem é o ladrão?",
+      "local": "Biblioteca",
+      "suspeitos": ["Bruno", "João", "Matheus", "Daniel"],
+      "culpado": "Daniel"
+    }
+  ]
+}

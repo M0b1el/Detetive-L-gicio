@@ -1,77 +1,67 @@
-from flask import Flask, render_template, redirect, url_for, session, request
-from tutorial_data import tutorial_casos
-import time
-app = Flask(__name__)
-app.secret_key = 'segredo123'
+from flask import Flask, render_template, request, redirect, url_for
+import os
+import json
 
-# Tela de Carregamento
+app = Flask(__name__)
+
+# Carregar dados.json
+caminho_arquivo = os.path.join(os.path.dirname(__file__), 'data', 'dados.json')
+with open(caminho_arquivo, 'r', encoding='utf-8') as f:
+    dados = json.load(f)
+
+# Rota Loading
 @app.route('/')
 def loading():
     return render_template('loading.html')
 
-# Home
+# Rota Home
 @app.route('/home')
 def home():
     return render_template('home.html')
 
-# Modos de Jogo
+# Rota Modos 
 @app.route('/modos')
 def modos():
     return render_template('modos.html')
 
+#  Rota tutorial 
+@app.route('/tutorial')
+def tutorial():
+    # Página com lista dos tutoriais
+    return render_template('tutorial.html', tutoriais=dados['tutoriais'])
+
+@app.route('/tutorial-caso/<int:id>')
+def tutorial_caso(id):
+    # Página de descrição do caso
+    caso = dados['tutoriais'][id - 1]
+    return render_template('tutorial_caso.html', caso=caso)
+
+@app.route('/tutorial-caso/<int:id>/personagem')
+def selecionar_personagem(id):
+    # Página de seleção de personagem
+    caso = dados['tutoriais'][id - 1]
+    personagens = dados['personagens']
+    return render_template('selecionar_personagem.html', caso=caso, personagens=personagens)
+
+@app.route('/tutorial-caso/<int:id>/jogar')
+def jogar(id):
+    personagem = request.args.get('personagem')
+    caso = dados['tutoriais'][id - 1]
+    return render_template('jogo.html', caso=caso, personagem=personagem)
+
+# Rota Solo
 @app.route('/solo')
 def solo():
     return render_template('solo.html')
 
-# ---------------- Tutorial ----------------
+# Rota Multiplayer 
+@app.route('/multiplayer')
+def multiplayer():
+    return render_template('multiplayer.html')
 
-# Início do tutorial
-@app.route('/tutorial')
-def tutorial_inicio():
-    session['caso_atual'] = 0
-    return redirect(url_for('tutorial_caso'))
+# carregando dados 
+def carregar_dados():
+    caminho = os.path.join(os.path.dirname(__file__), 'data', 'dados.json')
+    with open(caminho, 'r', encoding='utf-8') as arquivo:
+        return json.load(arquivo)
 
-# Página do caso atual
-@app.route('/tutorial/caso')
-def tutorial_caso():
-    caso_atual = session.get('caso_atual', 0)
-
-    if caso_atual >= len(tutorial_casos):
-        return redirect(url_for('tutorial_conclusao'))
-
-    caso = tutorial_casos[caso_atual]
-    session['start_time'] = time.time()
-
-    return render_template('tutorial/tutorial_caso.html', caso=caso)
-
-# Verificar resposta
-@app.route('/tutorial/verificar', methods=['POST'])
-def tutorial_verificar():
-    resposta = request.form.get('resposta')
-    caso_atual = session.get('caso_atual', 0)
-    caso = tutorial_casos[caso_atual]
-
-    tempo_gasto = time.time() - session.get('start_time', time.time())
-    tempo_restante = 180 - tempo_gasto
-
-    if tempo_restante <= 0:
-        return render_template('tutorial/tutorial_tempo_esgotado.html')
-
-    if resposta.lower() == caso['culpado'].lower():
-        session['caso_atual'] = caso_atual + 1
-        return redirect(url_for('tutorial_caso'))
-    else:
-        return render_template(
-            'tutorial/tutorial_erro.html',
-            caso=caso,
-            tempo_restante=int(tempo_restante)
-        )
-
-# Tutorial concluído
-@app.route('/tutorial/concluido')
-def tutorial_conclusao():
-    return render_template('tutorial/tutorial_concluido.html')
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
