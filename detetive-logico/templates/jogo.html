@@ -2,15 +2,52 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Jogo | {{ caso.titulo }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ caso.titulo }} - Detetive Lógico</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jogo.css') }}">
 </head>
 <body>
-    <h1>Iniciando o Caso: {{ caso.titulo }}</h1>
-    <p>Você está jogando como <strong>{{ personagem }}</strong>.</p>
+    <div class="container">
+        <header>
+            <h1>{{ caso.titulo }}</h1>
+            <p class="descricao">{{ caso.descricao }}</p>
+            <p class="local"><strong>Local do crime:</strong> {{ caso.local }}</p>
+            <div id="timer">Tempo restante: <span id="tempo">14:00</span></div>
+        </header>
 
-    <p>Descrição do caso:</p>
-    <p>{{ caso.descricao }}</p>
+        <section class="dica">
+            <h2>Dica</h2>
+            <p id="dica-texto"></p>
+        </section>
 
-    <!-- Aqui você começa o jogo de fato. -->
+        <section class="mapa">
+            <h2>Mapa da Mansão</h2>
+            <img src="{{ url_for('static', filename='img/mapa.jpg') }}" alt="Mapa da Mansão" class="mapa-img">
+        </section>
+
+        <section class="proposicoes">
+            <h2>Proposições</h2>
+            <ul id="lista-proposicoes"></ul>
+        </section>
+
+        <section class="suspeitos">
+            <h2>Quem é o culpado?</h2>
+            <form id="form-verificacao">
+                {% for nome in caso.suspeitos %}
+                    <label class="suspeito">
+                        <input type="radio" name="culpado" value="{{ nome }}">
+                        {{ nome }}
+                    </label><br>
+                {% endfor %}
+                <button type="submit">Verificar</button>
+            </form>
+            <div id="resultado"></div>
+        </section>
+
+        <footer>
+            <a href="{{ url_for('modos') }}" class="botao-voltar">Voltar aos modos</a>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>

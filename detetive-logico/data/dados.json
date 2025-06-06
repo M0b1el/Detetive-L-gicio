@@ -1,22 +1,25 @@
 {
   "personagens": [
-    "João, o Cientista",
-    "Bruno, o Bibliotecário",
-    "Matheus, o Jardineiro",
-    "Daniel, o Chef"
-  ],
-  "locais": [
-    "Biblioteca",
-    "Cozinha",
-    "Laboratório",
-    "Jardim"
-  ],
-  "armas": [
-    "Faca",
-    "Veneno",
-    "Tesoura de poda",
-    "Seringa",
-    "Livros pesados"
+    {
+      "nome": "João, o Cientista",
+      "descricao": "Um gênio excêntrico obcecado por experimentos secretos.",
+      "imagem": "joao-cientista.jpg"
+    },
+    {
+      "nome": "Bruno, o Bibliotecário",
+      "descricao": "Calmo e reservado, sabe de segredos que ninguém mais lembra.",
+      "imagem": "bruno-bibliotecario.jpg"
+    },
+    {
+      "nome": "Matheus, o Jardineiro",
+      "descricao": "Sempre no jardim, mas há algo sombrio por trás de seu sorriso.",
+      "imagem": "matheus-jardineiro.jpg"
+    },
+    {
+      "nome": "Daniel, o Chef",
+      "descricao": "Mestre da cozinha... mas também do disfarce?",
+      "imagem": "daniel-chef.png"
+    }
   ],
   "tutoriais": [
     {
@@ -25,23 +28,54 @@
       "descricao": "O gato da mansão, Sir Whiskers, desapareceu! Matheus, o jardineiro, jurou que o viu pela última vez na estufa mas algo não bate em sua história. Descubra a verdade!",
       "local": "Estufa",
       "suspeitos": ["João", "Bruno", "Daniel", "Matheus"],
-      "culpado": "João"
+      "culpado": "João",
+      "proposicoes": [
+        "Se Bruno não viu o gato, então João estava escondido na estufa.",
+        "João foi visto próximo à estufa no horário do sumiço.",
+        "Daniel estava na cozinha durante o sumiço.",
+        "Matheus afirma que não viu João na estufa, mas suas ferramentas estavam fora do lugar."
+      ],
+      "dica": "Preste atenção ao álibi de Daniel e aos detalhes confusos do depoimento de Matheus."
     },
     {
       "id": 2,
-      "titulo": "O BOLO ENVENENADO",
+      "titulo": "🎂 O BOLO ENVENENADO",
       "descricao": "O bolo de aniversário do Chef Daniel foi contaminado! Quem quis arruinar a festa?",
       "local": "Cozinha",
       "suspeitos": ["Matheus", "Daniel", "João", "Bruno"],
-      "culpado": "Bruno"
+      "culpado": "Bruno",
+      "proposicoes": [
+        "Se Matheus estava no jardim, então não pôde mexer no bolo.",
+        "Daniel foi o último a chegar à cozinha.",
+        "Bruno estava reorganizando os livros enquanto os convidados estavam na festa.",
+        "João afirma ter visto Bruno perto da cozinha antes da festa começar."
+      ],
+      "dica": "Lembre-se: a oportunidade é tão importante quanto o motivo."
     },
     {
       "id": 3,
-      "titulo": "O LIVRO ROUBADO",
+      "titulo": "📚 O LIVRO ROUBADO",
       "descricao": "Um livro raro sumiu da biblioteca! Quem é o ladrão?",
       "local": "Biblioteca",
       "suspeitos": ["Bruno", "João", "Matheus", "Daniel"],
-      "culpado": "Daniel"
+      "culpado": "Daniel",
+      "proposicoes": [
+        "Se Daniel não estivesse na biblioteca, o livro não teria desaparecido.",
+        "Matheus estava regando as plantas no jardim durante o roubo.",
+        "João estava trancado no laboratório.",
+        "Bruno estava organizando os livros e não notou ninguém estranho entrando."
+      ],
+      "dica": "Pense em quem teria acesso, oportunidade e nenhum álibi sólido."
     }
+  ],
+  "armas": [
+    "Venenos",
+    "Corda",
+    "Tesoura de poda",
+    "Estátua",
+    "Livro pesado",
+    "Bisturi",
+    "Colher de prata",
+    "Produto químico experimental"
   ]
 }

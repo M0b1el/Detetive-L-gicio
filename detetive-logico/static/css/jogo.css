@@ -1,0 +1,83 @@
+body {
+    background-color: #121212;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.jogo-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.descricao {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+#timer {
+    background: #1e1e1e;
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.tabuleiro img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.proposicoes ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.proposicoes li {
+    background: #2a2a2a;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+.btn-suspeito {
+    background: #444;
+    color: white;
+    padding: 12px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-suspeito:hover {
+    background: #666;
+}
+
+.oculto {
+    display: none;
+}
+
+#resultado {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.btn-voltar {
+    display: inline-block;
+    margin-top: 20px;
+    color: #aaa;
+    text-decoration: none;
+}
